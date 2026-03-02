@@ -14,11 +14,12 @@ O objetivo é identificar empresas no Distrito Federal que demonstrem intenção
 
 | Integrantes       | Papeis                                          |
 |-------------------|---------------------------------------------------|
-| **Beatriz Schmitz**  |          |
-| **Marcos Feijó** |                      |
-| **Gabrielle Gutierres**     |  |
-| **Yuri D’Alessandro** |                         |
-| **Pedro Klein** |                         |
+| **Beatriz Schmitz**  | Front-end e tester       |
+| **Marcos Feijó** | Documentador e Back-end                   |
+| **Gabrielle Gutierres**  | Front-end e UX Writing       |
+| **Yuri D’Alessandro** | Banco de dados                        |
+| **Pedro Klein** | Back-end e API                        |
+| **Pedro Henrique Cardoso** | Banco de dados                    |
 
 ---
 
