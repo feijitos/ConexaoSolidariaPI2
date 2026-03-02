@@ -1,4 +1,4 @@
-# Projeto Integrador I
+# Projeto Integrador II
 
 A pesquisa do "Conexão Solidária" foca no acesso a postos de trabalho para pessoas com deficiência (PCD), com ênfase em indivíduos neurodivergentes. 
 
