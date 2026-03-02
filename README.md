@@ -18,7 +18,7 @@ O objetivo é identificar empresas no Distrito Federal que demonstrem intenção
 | **Marcos Feijó** |                      |
 | **Gabrielle Gutierres**     |  |
 | **Yuri D’Alessandro** |                         |
-| **Pesro Klein** |                         |
+| **Pedro Klein** |                         |
 
 ---
 
