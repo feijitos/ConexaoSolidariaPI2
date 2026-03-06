@@ -6,26 +6,33 @@ A pesquisa do "Conexão Solidária" foca no acesso a postos de trabalho para pes
 
 ## 1. Objetivo do Projeto
 
-O objetivo é identificar empresas no Distrito Federal que demonstrem intenção de promover a inclusão de pessoas neurodivergentes no ambiente corporativo. O estudo também se propõe a apoiar essas empresas, identificando os fatores que facilitam e as barreiras que dificultam o processo de inclusão.
+O objetivo principal do **Conexão Solidária** é democratizar o acesso ao mercado de trabalho para pessoas com TEA. 
+
+Através da tecnologia, o projeto busca:
+1. Reduzir as barreiras em processos seletivos convencionais.
+2. Capacitar profissionais para demandas reais do mercado.
+3. Sensibilizar empresas sobre o valor da neurodiversidade.
 
 ---
 
 ### Equipe
 
-| Integrantes       | Papeis                                          |
-|-------------------|---------------------------------------------------|
-| **Beatriz Schmitz**  | Front-end e tester       |
-| **Marcos Feijó** | Documentador e Back-end                   |
-| **Gabrielle Gutierres**  | Front-end e UX Writing       |
-| **Yuri D’Alessandro** | Banco de dados                        |
-| **Pedro Klein** | Back-end e API                        |
-| **Pedro Henrique Cardoso** | Banco de dados                    |
+| Integrantes | Papéis |
+|-------------|--------|
+| Beatriz Schmitz | Front-end e tester |
+| Marcos Feijó | Documentador e Back-end |
+| Gabrielle Gutierres | Front-end e UX Writing |
+| Yuri D’Alessandro | Banco de dados |
+| Pedro Klein | Back-end e API |
+| Pedro Henrique Cardoso | Banco de dados |
 
 ---
 
 ## 2. Descrição do projeto.
 
-Na pesquisa, o foco será em coletar e analisar informações sobre empresas que oferecem vagas para a categoria de PCD, facilitando o mapeamento das possibilidades de trabalho inclusivo por categoria, localização geográfica e principais funções. O estudo também se aprofundará em como um ambiente seguro pode promover a comunicação inicial sem a exposição de informações pessoais, e como a falta de acesso a serviços de apoio pode ser um obstáculo no processo de inclusão. O objetivo final é que a pesquisa se torne uma ferramenta de solidariedade e inclusão social ao identificar e documentar esses dados.
+O Conexão Solidária é uma proposta de plataforma web voltada à inclusão profissional de pessoas com Transtorno do Espectro Autista (TEA). O foco do sistema é permitir que o usuário gerencie seu perfil profissional de forma personalizada, indo além do currículo tradicional.
+
+Através da plataforma, será possível detalhar formação acadêmica, experiências e habilidades, além de indicar preferências de ambiente de trabalho e necessidades específicas, como estímulos sensoriais e métodos de comunicação adequados. A partir desses dados, o sistema atuará como um facilitador na identificação de oportunidades profissionais que sejam verdadeiramente compatíveis com o perfil e as particularidades de cada usuário.
 
 ---
 
