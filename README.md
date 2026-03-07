@@ -1,17 +1,12 @@
 # Projeto Integrador II
 
-O projeto "Conexão Solidária" foca no acesso a postos de trabalho para pessoas com deficiência (PCD), com ênfase em indivíduos neurodivergentes. 
+O projeto “Conexão Solidária” tem como foco auxiliar pessoas com TEA a compreender melhor seu perfil profissional e identificar ambientes de trabalho mais compatíveis com suas necessidades e preferências.
 
 ---
 
 ## 1. Objetivo do Projeto
 
-O objetivo principal do **Conexão Solidária** é democratizar o acesso ao mercado de trabalho para pessoas com TEA. 
-
-Através da tecnologia, o projeto busca:
-1. Reduzir as barreiras em processos seletivos convencionais.
-2. Capacitar profissionais para demandas reais do mercado.
-3. Sensibilizar empresas sobre o valor da neurodiversidade.
+O objetivo do projeto Conexão Solidária é promover maior adequação para pessoas com TEA no mercado de trabalho, auxiliando na identificação de ambientes profissionais mais compatíveis com suas necessidades e preferências.
 
 ---
 
@@ -30,9 +25,9 @@ Através da tecnologia, o projeto busca:
 
 ## 2. Descrição do projeto.
 
-O Conexão Solidária é uma proposta de plataforma web voltada à inclusão profissional de pessoas com Transtorno do Espectro Autista (TEA). O foco do sistema é permitir que o usuário gerencie seu perfil profissional de forma personalizada, indo além do currículo tradicional.
+O Conexão Solidária será uma plataforma web onde o usuário responderá a um questionário sobre suas preferências de trabalho, como ambiente profissional, comunicação e organização de tarefas. Com base nas respostas, o sistema analisará as informações e gerará um gráfico de compatibilidade, permitindo que o candidato visualize quais tipos de ambientes de trabalho poderão ser mais adequados ao seu perfil.
 
-Através da plataforma, será possível detalhar formação acadêmica, experiências e habilidades, além de indicar preferências de ambiente de trabalho e necessidades específicas, como estímulos sensoriais e métodos de comunicação adequados. A partir desses dados, o sistema atuará como um facilitador na identificação de oportunidades profissionais que sejam verdadeiramente compatíveis com o perfil e as particularidades de cada usuário.
+A plataforma também permitirá que o usuário adicione seu currículo, organizando suas informações profissionais dentro do sistema.
 
 ---
 
@@ -72,13 +67,13 @@ O preconceito e a falta de conhecimento sobre o Transtorno do Espectro Autista (
 
 O repositório foi organizado em pastas para garantir modularidade, clareza e facilidade de manutenção do projeto. 
 
-- **/frontend**: Interface do usuário. Componentes, páginas, estilos, serviços e assets.
-- **/backend**: API, regras de negócio, integração com banco de dados e testes do servidor.
+- **/frontend**: Interface do usuário, incluindo páginas HTML, estilos (CSS), scripts JavaScript e recursos visuais da aplicação.
+- **/backend**: Responsável pela lógica do sistema, processamento das respostas do questionário, geração do gráfico de compatibilidade e integração com o banco de dados.
 - **/docs**: Documentação do projeto.
-  - **/docs/analise**: Mapa de empatia, requisitos funcionais e não funcionais.
-  - **/docs/design**: Protótipos, wireframes, fluxos e guia de estilos.
+  - **/docs/analise**: Requisitos do sistema, objetivos do projeto e análise do problema.
+  - **/docs/design**: Protótipos, wireframes e definição da interface da plataforma.
   - **/docs/relatorios**: Relatórios (parcial/final), atas e apresentações.
--  **/database**: Scripts SQL, migrações e *seeds* para popular o banco.
+- **/database**: Contém a estrutura do banco de dados, incluindo scripts SQL responsáveis pela criação das tabelas e organização das informações dos usuários e currículos.
 
 ---
 
