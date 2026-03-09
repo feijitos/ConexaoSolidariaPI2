@@ -67,13 +67,10 @@ O preconceito e a falta de conhecimento sobre o Transtorno do Espectro Autista (
 
 O repositório foi organizado em pastas para garantir modularidade, clareza e facilidade de manutenção do projeto. 
 
-- **/frontend**: Interface do usuário, incluindo páginas HTML, estilos (CSS), scripts JavaScript e recursos visuais da aplicação.
-- **/backend**: Responsável pela lógica do sistema, processamento das respostas do questionário, geração do gráfico de compatibilidade e integração com o banco de dados.
+- **/frontend**: Interface do usuário.
+- **/backend**: Lógica do sistema e integração com banco de dados.
 - **/docs**: Documentação do projeto.
-  - **/docs/analise**: Requisitos do sistema, objetivos do projeto e análise do problema.
-  - **/docs/design**: Protótipos, wireframes e definição da interface da plataforma.
-  - **/docs/relatorios**: Relatórios (parcial/final), atas e apresentações.
-- **/database**: Contém a estrutura do banco de dados, incluindo scripts SQL responsáveis pela criação das tabelas e organização das informações dos usuários e currículos.
+- **/database**: Estrutura do banco de dados.
 
 ---
 
