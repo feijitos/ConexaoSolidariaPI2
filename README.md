@@ -58,7 +58,7 @@ O preconceito e a falta de conhecimento sobre o Transtorno do Espectro Autista (
 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Python
-- **Banco de Dados:** MySQL / PostgreSQL
+- **Banco de Dados:** MySQL
 - **Controle de versão:** Git e GitHub
 
 ---
