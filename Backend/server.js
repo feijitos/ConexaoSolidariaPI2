@@ -15,12 +15,10 @@ import {
 
 dotenv.config();
 
-// --- GET LOCAL IP ADDRESS ---
 const getLocalIpAddress = () => {
   const interfaces = os.networkInterfaces();
   for (const name of Object.keys(interfaces)) {
     for (const iface of interfaces[name]) {
-      // Skip internal and IPv6 addresses
       if (iface.family === "IPv4" && !iface.internal) {
         return iface.address;
       }
@@ -30,8 +28,6 @@ const getLocalIpAddress = () => {
 };
 
 const app = express();
-
-// --- CORS CONFIGURATION FOR PRODUCTION ---
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:5175",
@@ -43,7 +39,6 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Em desenvolvimento, aceita qualquer origem
       if (process.env.NODE_ENV === "development") {
         callback(null, true);
       } else if (!origin || allowedOrigins.includes(origin)) {
@@ -60,17 +55,13 @@ app.use(
 
 app.use(express.json());
 
-// Mock Database
 const users = new Map();
 const questionnaires = new Map();
 let userIdCounter = 1;
 
-// --- AUTH ROUTES WITH VALIDATION AND RATE LIMITING ---
-
 app.post("/api/register", (req, res) => {
   const { name, email, password } = req.body;
 
-  // Rate limiting
   const rateLimitCheck = checkRateLimit(`register:${req.ip || "unknown"}`, 5, 60000);
   if (rateLimitCheck.isLimited) {
     return res.status(429).json({
@@ -79,14 +70,12 @@ app.post("/api/register", (req, res) => {
     });
   }
 
-  // Validation
   const validation = validateRegistration(name, email, password);
   if (!validation.isValid) {
     return res.status(400).json({ error: validation.errors[0] });
   }
 
   try {
-    // Check if user exists
     const existingUser = Array.from(users.values()).find(
       (u) => u.email.toLowerCase() === email.toLowerCase()
     );
@@ -100,7 +89,7 @@ app.post("/api/register", (req, res) => {
       id: userId,
       name: sanitizeInput(name),
       email: email.toLowerCase(),
-      password, // In production, use bcrypt!
+      password,
       createdAt: new Date(),
     };
 
@@ -121,7 +110,6 @@ app.post("/api/register", (req, res) => {
 app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
 
-  // Rate limiting
   const rateLimitCheck = checkRateLimit(`login:${req.ip || "unknown"}`, 10, 60000);
   if (rateLimitCheck.isLimited) {
     return res.status(429).json({
@@ -130,7 +118,6 @@ app.post("/api/login", (req, res) => {
     });
   }
 
-  // Validation
   const validation = validateLogin(email, password);
   if (!validation.isValid) {
     return res.status(400).json({ error: "Credenciais inválidas" });
@@ -156,8 +143,6 @@ app.post("/api/login", (req, res) => {
     return res.status(500).json({ error: "Erro ao fazer login" });
   }
 });
-
-// --- QUESTIONNAIRE ROUTES ---
 
 app.post("/api/questionnaire", (req, res) => {
   const { userId, answers } = req.body;
@@ -195,8 +180,6 @@ app.get("/api/questionnaire/:id", (req, res) => {
     return res.status(404).json({ error: "Questionário não encontrado" });
   }
 });
-
-// --- ANALYSIS ROUTE ---
 
 app.post("/api/analyze", (req, res) => {
   const { answers } = req.body;
@@ -249,8 +232,6 @@ app.post("/api/analyze", (req, res) => {
   }
 });
 
-// --- HEALTH CHECK ---
-
 app.get("/api/health", (req, res) => {
   return res.status(200).json({
     status: "OK",
@@ -259,8 +240,6 @@ app.get("/api/health", (req, res) => {
     timestamp: new Date().toISOString(),
   });
 });
-
-// --- PORT AUTO-RETRY LOGIC ---
 
 const PORTS_TO_TRY = [process.env.PORT || 3000, 3001, 3002];
 

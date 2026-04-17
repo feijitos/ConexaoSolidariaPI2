@@ -1,35 +1,15 @@
-/**
- * API Configuration
- * Centralizes all API endpoints and base URL management
- * Uses Vite environment variables for production/development
- */
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 export const API_ENDPOINTS = {
-  // Authentication
   REGISTER: `${API_BASE_URL}/api/register`,
   LOGIN: `${API_BASE_URL}/api/login`,
-
-  // Questionnaire
   QUESTIONNAIRE_SUBMIT: `${API_BASE_URL}/api/questionnaire`,
   QUESTIONNAIRE_GET: (id) => `${API_BASE_URL}/api/questionnaire/${id}`,
-
-  // Analysis
   ANALYZE: `${API_BASE_URL}/api/analyze`,
-
-  // Health Check
   HEALTH: `${API_BASE_URL}/api/health`,
 };
 
-/**
- * Generic API request wrapper with error handling
- */
-export const apiRequest = async (
-  url,
-  options = {}
-) => {
+export const apiRequest = async (url, options = {}) => {
   const defaultOptions = {
     method: "GET",
     headers: {
@@ -48,6 +28,15 @@ export const apiRequest = async (
     }
 
     return { ok: true, data, status: response.status };
+  } catch (error) {
+    return {
+      ok: false,
+      data: null,
+      error: error instanceof Error ? error.message : "Erro desconhecido",
+      status: 500,
+    };
+  }
+};
   } catch (error) {
     console.error("API Error:", error);
     return {
