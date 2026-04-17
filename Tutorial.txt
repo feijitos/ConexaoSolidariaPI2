@@ -1,0 +1,56 @@
+Passo 0: 
+Node.js: Baixe do site oficial. Versão LTS 
+
+Git: Baixe do site oficial.
+
+Python: Baixe do site oficial. Na primeira tela de instalação do Python, marque a caixinha lá embaixo que diz "Add Python to PATH".
+
+Passo 1:
+Abra o VS Code;
+Abra o terminal dentro do Vscode;
+
+Passo 2: Pegando do Github
+Você precisa dizer para o computador ir lá no GitHub e copiar a pasta do projeto.
+
+Copie e cole no terminal o código abaixo
+
+git clone https://github.com/feijitos/ConexaoSolidariaPI2.git
+
+Passo 3: 
+Copie e cole no terminal o código abaixo
+
+cd ConexaoSolidariaPI2
+
+Passo 4:
+Copie e cole no terminal o código abaixo
+
+npm install
+
+depois:
+
+npm run dev
+
+Até aqui mostra o site só 
+Agora com o banco 
+Passo 5: Ligando o Banco de Dados
+Abra um segundo terminal para ligar o Python.
+
+Copie e cole no terminal o código abaixo
+
+cd ConexaoSolidariaPI2
+
+Copie e cole no terminal o código abaixo
+
+pip install -r requirements.txt
+
+Se não for o comando pip manda no chat que ele te ajuda, mas deve ir
+
+A Senha do MySQL: Aqui, antes de ligar, você vai abrir o arquivo do seu código (como o models.py) e colar aquela URL do MySQL :
+mysql+pymysql://usuario:senha@IP_DELE:3306/nome_do_banco. Salve o arquivo.
+
+Volte pro terminal e digite:
+
+uvicorn main:app --reload
+
+Fim!
+Se aparecer algum erro, veja se fez tudo antes, mas se ainda sim aparecer use o chat para ajudar.
