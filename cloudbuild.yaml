@@ -1,5 +1,4 @@
 steps:
-  # Build Backend image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
@@ -11,7 +10,6 @@ steps:
       - 'Backend/Dockerfile'
       - './Backend'
 
-  # Build Frontend image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
@@ -23,19 +21,16 @@ steps:
       - 'Frontend/Dockerfile'
       - './Frontend'
 
-  # Push Backend to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'gcr.io/$PROJECT_ID/conexao-solidaria-backend:$SHORT_SHA'
 
-  # Push Frontend to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'gcr.io/$PROJECT_ID/conexao-solidaria-frontend:$SHORT_SHA'
 
-  # Deploy Backend to Cloud Run
   - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
       - run
@@ -44,7 +39,6 @@ steps:
       - --location=us-central1
       - --cluster=conexao-solidaria
 
-  # Deploy Frontend to Cloud Run
   - name: 'gcr.io/cloud-builders/cloud-run'
     args:
       - deploy
@@ -66,3 +60,4 @@ options:
   machineType: 'N1_HIGHCPU_8'
 
 timeout: '1800s'
+

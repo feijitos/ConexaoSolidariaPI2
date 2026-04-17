@@ -1,7 +1,6 @@
 version: '3.9'
 
 services:
-  # MySQL Database
   mysql:
     image: mysql:8.0
     container_name: conexao-solidaria-db
@@ -22,7 +21,6 @@ services:
       timeout: 20s
       retries: 10
 
-  # Backend API (Node.js)
   backend:
     build:
       context: ./Backend
@@ -49,7 +47,6 @@ services:
       - /app/node_modules
     command: npm run dev
 
-  # Frontend (Vite + Reverse Proxy)
   frontend:
     build:
       context: ./Frontend

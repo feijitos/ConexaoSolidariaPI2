@@ -1,5 +1,4 @@
 services:
-  # ===== BACKEND SERVICE =====
   - type: web
     name: conexao-solidaria-backend
     runtime: node
@@ -13,10 +12,7 @@ services:
         value: "3000"
       - key: FRONTEND_URL
         sync: false
-    # Link FRONTEND_URL to Frontend's external URL automatically
-    # You'll need to set this manually in Render dashboard or via API
 
-  # ===== FRONTEND SERVICE =====
   - type: web
     name: conexao-solidaria-frontend
     runtime: static
@@ -27,18 +23,4 @@ services:
     envVars:
       - key: VITE_API_URL
         sync: false
-    # Set VITE_API_URL to Backend service URL (e.g., https://conexao-solidaria-backend.onrender.com)
-    # This can be set manually in Render dashboard
 
-# === DEPLOYMENT INSTRUCTIONS ===
-# 
-# 1. Connect this repo to Render at https://render.com
-# 2. Create two services from this render.yaml
-# 3. For Backend service:
-#    - Set environment variable: FRONTEND_URL = https://conexao-solidaria-frontend.onrender.com
-# 4. For Frontend service:
-#    - Set build environment variable: VITE_API_URL = https://conexao-solidaria-backend.onrender.com
-# 5. Deploy both services
-#
-# Important: After deployment, update the FRONTEND_URL in Backend to match your Frontend URL
-# and VITE_API_URL in Frontend to match your Backend URL
