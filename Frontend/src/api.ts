@@ -37,12 +37,3 @@ export const apiRequest = async (url, options = {}) => {
     };
   }
 };
-  } catch (error) {
-    console.error("API Error:", error);
-    return {
-      ok: false,
-      error: error.message || "Erro ao conectar com o servidor",
-      status: 500,
-    };
-  }
-};
