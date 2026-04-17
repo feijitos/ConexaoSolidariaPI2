@@ -1,0 +1,18 @@
+{
+  "name": "conexao-solidaria",
+  "version": "1.0.0",
+  "description": "Conexao Solidaria PI2 Project",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd Frontend && npm install && cd ../Backend && npm install",
+    "dev:frontend": "cd Frontend && npm run dev",
+    "dev:backend": "cd Backend && npm run dev",
+    "build:frontend": "cd Frontend && npm run build",
+    "build:backend": "cd Backend && npm run build",
+    "preview:frontend": "cd Frontend && npm run preview"
+  },
+  "workspaces": [
+    "Frontend",
+    "Backend"
+  ]
+}

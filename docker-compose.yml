@@ -1,0 +1,77 @@
+version: '3.9'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: conexao-solidaria-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-conexao_solidaria}
+      MYSQL_USER: ${MYSQL_USER:-app}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-apppass}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./Backend/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - conexao-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Backend API (Node.js)
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: conexao-solidaria-backend
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      MYSQL_HOST: mysql
+      MYSQL_USER: ${MYSQL_USER:-app}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-apppass}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-conexao_solidaria}
+      MYSQL_PORT: 3306
+      FRONTEND_URL: http://localhost:5173
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - conexao-network
+    volumes:
+      - ./Backend:/app
+      - /app/node_modules
+    command: npm run dev
+
+  # Frontend (Vite + Reverse Proxy)
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: conexao-solidaria-frontend
+    environment:
+      VITE_API_URL: http://localhost:3000
+      NODE_ENV: development
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - conexao-network
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    command: npm run dev
+
+networks:
+  conexao-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
